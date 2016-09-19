@@ -1,0 +1,164 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 4092 bytes for char in c:\jdk7u1_32p\jdk7u3\hotspot\src\share\vm\utilities/stack.inline.hpp
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:58), pid=63140, tid=13588
+#
+# JRE version: 7.0_03-b05
+# Java VM: Java HotSpot(TM) Client VM (22.1-b02 mixed mode, sharing windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x022ae800):  VMThread [stack: 0x04500000,0x04550000] [id=13588]
+
+Stack: [0x04500000,0x04550000],  sp=0x0454f388,  free space=316k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x162f81]
+V  [jvm.dll+0x15d98c]
+V  [jvm.dll+0x168149]
+V  [jvm.dll+0x16823f]
+V  [jvm.dll+0x9af6f]
+V  [jvm.dll+0x16870d]
+V  [jvm.dll+0x168a61]
+V  [jvm.dll+0x498b8]
+V  [jvm.dll+0x49c2e]
+V  [jvm.dll+0x120525]
+V  [jvm.dll+0x1215b6]
+V  [jvm.dll+0x14064b]
+V  [jvm.dll+0x13f191]
+V  [jvm.dll+0x6eca0]
+V  [jvm.dll+0x68c5f]
+V  [jvm.dll+0x6aaef]
+V  [jvm.dll+0x6afa0]
+V  [jvm.dll+0x69ac7]
+V  [jvm.dll+0x71363]
+V  [jvm.dll+0x686a6]
+V  [jvm.dll+0x5fe83]
+V  [jvm.dll+0x16b056]
+V  [jvm.dll+0x1485c5]
+V  [jvm.dll+0x1477fe]
+V  [jvm.dll+0x147b2c]
+V  [jvm.dll+0x147fa2]
+V  [jvm.dll+0x1720b9]
+C  [msvcr100.dll+0x5c6de]
+C  [msvcr100.dll+0x5c788]
+C  [KERNEL32.DLL+0x138f4]
+C  [ntdll.dll+0x65de3]
+C  [ntdll.dll+0x65dae]
+
+JavaThread 0x023aa400 (nid = 57600) was being processed
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+v  ~RuntimeStub::fast_new_instance Runtime1 stub
+J  com.test.reference.JvmReference.main([Ljava/lang/String;)V
+v  ~StubRoutines::call_stub
+VM_Operation (0x01e7f470): GenCollectForAllocation, mode: safepoint, requested by thread 0x023aa400
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x022fa400 JavaThread "Service Thread" daemon [_thread_blocked, id=336, stack(0x04860000,0x048b0000)]
+  0x022d7800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=70044, stack(0x047d0000,0x04820000)]
+  0x022d6800 JavaThread "Attach Listener" daemon [_thread_blocked, id=9860, stack(0x04740000,0x04790000)]
+  0x022d4400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=54904, stack(0x046b0000,0x04700000)]
+  0x022b1800 JavaThread "Finalizer" daemon [_thread_blocked, id=57628, stack(0x04620000,0x04670000)]
+  0x022b0000 JavaThread "Reference Handler" daemon [_thread_blocked, id=49968, stack(0x04590000,0x045e0000)]
+  0x023aa400 JavaThread "main" [_thread_blocked, id=57600, stack(0x01e30000,0x01e80000)]
+
+Other Threads:
+=>0x022ae800 VMThread [stack: 0x04500000,0x04550000] [id=13588]
+  0x02314c00 WatcherThread [stack: 0x048f0000,0x04940000] [id=70360]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x023a8700] Threads_lock - owner thread: 0x022ae800
+[0x023a8dd8] Heap_lock - owner thread: 0x023aa400
+
+Heap
+ def new generation   total 38144K, used 38143K [0x242b0000, 0x26c10000, 0x29800000)
+  eden space 33920K, 100% used [0x242b0000, 0x263d0000, 0x263d0000)
+  from space 4224K,  99% used [0x267f0000, 0x26c0fff8, 0x26c10000)
+  to   space 4224K,   0% used [0x263d0000, 0x263d0000, 0x267f0000)
+ tenured generation   total 147064K, used 146945K [0x29800000, 0x3279e000, 0x342b0000)
+   the space 147064K,  99% used [0x29800000, 0x32780438, 0x32780600, 0x3279e000)
+ compacting perm gen  total 12288K, used 136K [0x342b0000, 0x34eb0000, 0x382b0000)
+   the space 12288K,   1% used [0x342b0000, 0x342d21f8, 0x342d2200, 0x34eb0000)
+    ro space 10240K,  45% used [0x382b0000, 0x38732e40, 0x38733000, 0x38cb0000)
+    rw space 12288K,  54% used [0x38cb0000, 0x393367b8, 0x39336800, 0x398b0000)
+
+Code Cache  [0x023b0000, 0x02458000, 0x043b0000)
+ total_blobs=212 nmethods=83 adapters=66 free_code_cache=32097Kb largest_free_block=32867648
+
+Dynamic libraries:
+0x001d0000 - 0x001ff000 	D:\WorkSoft\java\jdk1.7.0_03\bin\javaw.exe
+0x77130000 - 0x772ab000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x75630000 - 0x75710000 	C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+0x757a0000 - 0x7591e000 	C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+0x770b0000 - 0x7712b000 	C:\WINDOWS\SYSTEM32\ADVAPI32.dll
+0x76c70000 - 0x76d2e000 	C:\WINDOWS\SYSTEM32\msvcrt.dll
+0x75180000 - 0x751c4000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x751d0000 - 0x7527d000 	C:\WINDOWS\SYSTEM32\RPCRT4.dll
+0x73c50000 - 0x73c6e000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x73c40000 - 0x73c4a000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x75920000 - 0x75978000 	C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+0x75430000 - 0x75577000 	C:\WINDOWS\SYSTEM32\USER32.dll
+0x752e0000 - 0x7542f000 	C:\WINDOWS\SYSTEM32\GDI32.dll
+0x6fd00000 - 0x6ff0f000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_d3c2e4e965da4528\COMCTL32.dll
+0x76950000 - 0x76b0d000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x76920000 - 0x7694b000 	C:\WINDOWS\SYSTEM32\IMM32.DLL
+0x5a7a0000 - 0x5a85e000 	D:\WorkSoft\java\jdk1.7.0_03\jre\bin\msvcr100.dll
+0x54bf0000 - 0x54f18000 	D:\WorkSoft\java\jdk1.7.0_03\jre\bin\client\jvm.dll
+0x75980000 - 0x759a4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x75710000 - 0x75733000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x76010000 - 0x76047000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x76db0000 - 0x76db6000 	C:\WINDOWS\SYSTEM32\PSAPI.DLL
+0x71380000 - 0x71388000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x76b10000 - 0x76b6f000 	C:\WINDOWS\SYSTEM32\WS2_32.dll
+0x5b480000 - 0x5b48c000 	D:\WorkSoft\java\jdk1.7.0_03\jre\bin\verify.dll
+0x59f00000 - 0x59f20000 	D:\WorkSoft\java\jdk1.7.0_03\jre\bin\java.dll
+0x59970000 - 0x59983000 	D:\WorkSoft\java\jdk1.7.0_03\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: com.test.reference.JvmReference
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\WorkSoft\java\jdk1.7.0_03
+CLASSPATH=.;D:\WorkSoft\java\jdk1.7.0_03lib;D:\WorkSoft\java\jdk1.7.0_03lib\tools.jar;
+PATH=D:/WorkSoft/java/jdk1.7.0_03/bin/../jre/bin/client;D:/WorkSoft/java/jdk1.7.0_03/bin/../jre/bin;D:/WorkSoft/java/jdk1.7.0_03/bin/../jre/lib/i386;D:\WorkSoft\java\jdk1.7.0_03\bin;c:\Program Files (x86)\AMD APP\bin\x86_64;c:\Program Files (x86)\AMD APP\bin\x86;c:\Program Files (x86)\Intel\iCLS Client\;c:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;D:\WorkSoft\TortoiseSVN\bin;D:\WorkSoft\eclipse;
+USERNAME=user
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt
+
+Memory: 4k page, physical 8276320k(2076400k free), swap 21325580k(3024k free)
+
+vm_info: Java HotSpot(TM) Client VM (22.1-b02) for windows-x86 JRE (1.7.0_03-b05), built on Feb  3 2012 20:43:37 by "java_re" with unknown MS VC++:1600
+
+time: Tue Mar 22 14:48:39 2016
+elapsed time: 15 seconds
+
